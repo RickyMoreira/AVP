@@ -38,10 +38,11 @@
       border: 1px solid #ccc;
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
-    .lang-section {
-      display: none;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
+    <select aria-label="Selecionar idioma" onchange="switchLanguage(this.value)">
+  <option value="pt">🇧🇷 Português</option>
+  <option value="en">🇺🇸 English</option>
+  <option value="es">🇪🇸 Español</option>
+</select>
     }
     .active {
       display: block;
