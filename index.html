@@ -12,6 +12,17 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rickymoreira.github.io/AVP/index.html">
   <style>
+    <script>
+  function switchLanguage(lang) {
+    document.querySelectorAll('.lang-section').forEach(section => {
+      section.classList.remove('active');
+    });
+    const selectedSection = document.getElementById(lang);
+    if (selectedSection) {
+      selectedSection.classList.add('active');
+    }
+  }
+</script>
     body {
       font-family: "Segoe UI", "Helvetica Neue", sans-serif;
       background: linear-gradient(to right, #fdfdfd, #f6f6f6);
