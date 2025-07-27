@@ -1,1 +1,206 @@
-git revert <commit-hash>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta property="og:title" content="Alto Da Vila Progresso">
+<meta property="og:description" content="(FAQ) Perguntas Frequentes">
+<meta property="og:image" content="https://raw.githubusercontent.com/RickyMoreira/AVP/main/FrontDor.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rickymoreira.github.io/AVP/index.html">
+  <meta charset="UTF-8">
+  <title>Alto da Vila Progresso – Multilingual FAQ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+      margin: auto;
+      max-width: 800px;
+      font-size: 1.1rem;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+    select {
+      font-size: 1.1em;
+      margin: 0 auto 20px;
+      display: block;
+      padding: 10px;
+      border-radius: 6px;
+      width: 90%;
+      max-width: 300px;
+    }
+    .lang-section {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    details {
+      background: #fff;
+      margin: 14px 0;
+      padding: 14px;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    summary {
+      font-weight: bold;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+    summary:before {
+      content: "➕ ";
+    }
+    details[open] summary:before {
+      content: "➖ ";
+    }
+    p {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>🏡 Alto da Vila Progresso – FAQ</h1>
+
+  <select onchange="document.querySelectorAll('.lang-section').forEach(e => e.classList.remove('active')); document.getElementById(this.value).classList.add('active');">
+    <option value="pt">🇧🇷 Português</option>
+    <option value="en">🇺🇸 English</option>
+    <option value="es">🇪🇸 Español</option>
+  </select>
+
+  <!-- Portuguese -->
+  <div id="pt" class="lang-section active">
+    <details><summary>📍 Endereço da Propriedade</summary>
+  <p>🏠 Rua Capitão Curado, 323 – Vila Progresso, Jundiaí – SP</p>
+  <p>🗺️ <a href="https://maps.app.goo.gl/7fH2aEjoKZjnimcf9" target="_blank">Abrir no Google Maps</a></p>
+</details>
+    <details><summary>📁 Regras da Casa</summary>
+      <p>🚭 Proibido fumar dentro da casa.</p>
+      <p>💡❄️ Não deixe luzes ou ar-condicionado ligados ao sair.</p>
+      <p>🚷 Sem visitas sem autorização prévia.</p>
+      <p>🍴 Use utensílios com cuidado.</p>
+      <p>👶⚠️ Atenção com crianças nas escadas.</p>
+      <p>🔕 Silêncio das 22h às 7h.</p>
+      <p>🔉 Música moderada, sem incômodo aos vizinhos.</p>
+    </details>
+    <details><summary>❄️ Ar-Condicionado</summary>
+      <p>🚪🪟 Mantenha portas e janelas fechadas com ar ligado.</p>
+      <p>🌡️ Temperatura ideal: 22–23°C.</p>
+    </details>
+    <details><summary>🗑️ Coleta de Lixo</summary>
+      <p>🍂 Orgânico: Terça, Quinta e Sábado após 19h.</p>
+      <p>♻️ Reciclável: Segunda e Sexta.</p>
+    </details>
+    <details><summary>🔥 Churrasqueira</summary>
+      <p>🚰 Abra registro próximo ao banheiro inferior.</p>
+      <p>🔒 Feche após o uso.</p>
+      <p>🧼 Limpe e organize tudo.</p>
+      <p>🧽 Limpar a grelha.</p>
+      <p>🍽️ Devolver utensílios limpos.</p>
+      <p>🚫🔥 Não jogue água na brasa.</p>
+      <p>🔉 Volume moderado.</p>
+      <p>🗑️ Recolha o lixo.</p>
+    </details>
+    <details><summary>⬇️ Parte Inferior</summary>
+      <p>🚪 Mantenha portas de vidro e portão fechados.</p>
+      <p>💡 Apague as luzes ao sair.</p>
+    </details>
+    <details><summary>🌳 Jardim</summary>
+      <p>🚫🌲 Não subir nas árvores.</p>
+      <p>🚫🍏 Não colher frutas verdes.</p>
+      <p>🚫🌿 Não danificar plantas.</p>
+      <p>🐶💩 Recolher os dejetos do pet.</p>
+    </details>
+  </div>
+
+  <!-- English -->
+  <div id="en" class="lang-section">
+    <details><summary>📍 Property Address</summary>
+  <p>🏠 Rua Capitão Curado, 323 – Vila Progresso, Jundiaí – SP</p>
+  <p>🗺️ <a href="https://maps.app.goo.gl/7fH2aEjoKZjnimcf9" target="_blank">Open in Google Maps</a></p>
+</details>
+    <details><summary>📁 House Rules</summary>
+      <p>🚭 No smoking inside the house.</p>
+      <p>💡❄️ Don’t leave lights or A/C running when leaving.</p>
+      <p>🚷 No visitors without prior approval.</p>
+      <p>🍴 Use utensils with care.</p>
+      <p>👶⚠️ Watch children near stairs.</p>
+      <p>🔕 Quiet hours: 10 PM to 7 AM.</p>
+      <p>🔉 Keep music low to avoid disturbing neighbors.</p>
+    </details>
+    <details><summary>❄️ Air Conditioning</summary>
+      <p>🚪🪟 Keep windows and doors closed when using A/C.</p>
+      <p>🌡️ Ideal temperature: 22–23°C.</p>
+    </details>
+    <details><summary>🗑️ Trash Collection</summary>
+      <p>🍂 Organic: Tue, Thu & Sat after 7 PM.</p>
+      <p>♻️ Recycling: Mon & Fri.</p>
+    </details>
+    <details><summary>🔥 Barbecue Area</summary>
+      <p>🚰 Open valve near downstairs bathroom.</p>
+      <p>🔒 Close after use.</p>
+      <p>🧼 Clean and organize the space.</p>
+      <p>🧽 Clean the grill.</p>
+      <p>🍽️ Return clean utensils.</p>
+      <p>🚫🔥 Never pour water on hot charcoal.</p>
+      <p>🔉 Keep music moderate.</p>
+      <p>🗑️ Dispose of trash properly.</p>
+    </details>
+    <details><summary>⬇️ Lower Level</summary>
+      <p>🚪 Keep glass doors and gate closed.</p>
+      <p>💡 Turn off lights when leaving.</p>
+    </details>
+    <details><summary>🌳 Garden</summary>
+      <p>🚫🌲 Do not climb trees.</p>
+      <p>🚫🍏 Do not pick green fruit.</p>
+      <p>🚫🌿 Do not damage plants.</p>
+      <p>🐶💩 Clean up after pets.</p>
+    </details>
+  </div>
+
+  <!-- Spanish -->
+  <div id="es" class="lang-section">
+    <details><summary>📍 Dirección de la Propiedad</summary>
+  <p>🏠 Rua Capitão Curado, 323 – Vila Progresso, Jundiaí – SP</p>
+  <p>🗺️ <a href="https://maps.app.goo.gl/7fH2aEjoKZjnimcf9" target="_blank">Abrir en Google Maps</a></p>
+</details>
+    <details><summary>📁 Reglas de la Casa</summary>
+      <p>🚭 Prohibido fumar dentro de la casa.</p>
+      <p>💡❄️ No deje luces encendidas ni aire acondicionado al salir.</p>
+      <p>🚷 No se permiten visitas sin autorización previa.</p>
+      <p>🍴 Utilice los utensilios con cuidado.</p>
+      <p>👶⚠️ Vigile a los niños cerca de las escaleras.</p>
+      <p>🔕 Horario de silencio: de 22:00 a 7:00.</p>
+      <p>🔉 Mantenga el volumen bajo para no molestar a los vecinos.</p>
+    </details>
+    <details><summary>❄️ Aire Acondicionado</summary>
+      <p>🚪🪟 Mantenga puertas y ventanas cerradas cuando esté encendido.</p>
+      <p>🌡️ Temperatura ideal: 22–23°C.</p>
+    </details>
+    <details><summary>🗑️ Recolección de Basura</summary>
+      <p>🍂 Orgánica: Martes, Jueves y Sábado después de las 19h.</p>
+      <p>♻️ Reciclables: Lunes y Viernes.</p>
+    </details>
+    <details><summary>🔥 Parrilla</summary>
+      <p>🚰 Abra la válvula cerca del baño inferior.</p>
+      <p>🔒 Ciérrela después de usar
+              <p>🧼 Limpie y organice el área.</p>
+      <p>🧽 Limpie la parrilla.</p>
+      <p>🍽️ Devuelva los utensilios limpios.</p>
+      <p>🚫🔥 No eche agua sobre las brasas.</p>
+      <p>🔉 Mantenga el volumen moderado.</p>
+      <p>🗑️ Recoja la basura y deséchela correctamente.</p>
+    </details>
+    <details><summary>⬇️ Parte Inferior</summary>
+      <p>🚪 Mantenga cerradas las puertas de vidrio y el portón.</p>
+      <p>💡 Apague las luces al salir.</p>
+    </details>
+    <details><summary>🌳 Jardín</summary>
+      <p>🚫🌲 No se suba a los árboles.</p>
+      <p>🚫🍏 No recoja frutas verdes.</p>
+      <p>🚫🌿 No dañe las plantas.</p>
+      <p>🐶💩 Recoja los desechos de las mascotas.</p>
+    </details>
+  </div>
