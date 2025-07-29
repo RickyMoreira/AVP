@@ -222,16 +222,28 @@
   </div>
 
   <!-- Spanish -->
-  <div id="es" class="lang-section">
-    <details><summary>📍 Dirección de la Propiedad</summary>
-  <p>🏠 Rua Capitão Curado, 323 – Vila Progresso, Jundiaí – SP</p>
-  <p>🗺️ <a href="https://maps.app.goo.gl/7fH2aEjoKZjnimcf9" target="_blank">Abrir en Google Maps</a></p>
-    </details>
-    <details><summary>📶 Wi-Fi</summary> 
-   <p> 🔒 Wi-Fi: Casa323-5G</p> 
-   <p> 🔒 Contrasenha: Curado@323</p> 
-      <button onclick="navigator.clipboard.writeText('Curado@323')">Copiar Contrasenha</button>
- </details>
+   <div class="lang lang-es" style="display:none">
+      <details>
+        <summary>📍 Dirección de la Propiedad</summary>
+        <p>🏠 Rua Capitão Curado, 323 – Vila Progresso, Jundiaí – SP</p>
+        <p>🗺️ <a href="https://maps.app.goo.gl/7fH2aEjoKZjnimcf9" target="_blank">Abrir en Google Maps</a></p>
+      </details>
+
+      <details>
+        <summary>🔑 Instrucciones para tomar la llave</summary>
+        <p>Vea el video a continuación para aprender cómo acceder al cajón de llaves:</p>
+        <video src="LockBox.mp4" controls width="100%" poster="thumbnail.jpg">
+          Su navegador no admite videos incrustados.
+        </video>
+      </details>
+
+      <details>
+        <summary>📶 Wi-Fi</summary>
+        <p>🔒 Wi-Fi: <strong>Casa323-5G</strong></p>
+        <p>🔒 Contraseña: <strong>Curado@323</strong></p>
+        <button onclick="navigator.clipboard.writeText('Curado@323')">Copiar Contraseña</button>
+      </details>
+
         <details><summary>📁 Reglas de la Casa</summary>
       <p>🚭 Prohibido fumar dentro de la casa.</p>
       <p>💡❄️ No deje luces encendidas ni aire acondicionado al salir.</p>
