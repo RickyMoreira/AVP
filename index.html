@@ -105,6 +105,20 @@
   <option value="en" selected>🇺🇸 English</option>
   <option value="es">🇪🇸 Español</option>
 </select>
+<script>
+    function switchLanguage(lang) {
+      document.querySelectorAll("[class^='lang-']").forEach(section => {
+        section.style.display = section.classList.contains(`lang-${lang}`) ? "block" : "none";
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const initialLang = document.querySelector("select").value;
+      switchLanguage(initialLang);
+    });
+  </script>
+</body>
+</html>
 
       <!-- Portuguese -->
  <div id="pt" class="lang-section">
