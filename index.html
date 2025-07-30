@@ -99,12 +99,12 @@
   <main>
     <h1>🏡 Alto da Vila Progresso (FAQ) Perguntas Frequentes</h1>
 
-    <select aria-label="Selecionar idioma" onchange="switchLanguage(this.value)">
-     <select id="language">
-  <option value="en">English</option>
-  <option value="pt" selected>Português</option>
-  <option value="es">Español</option>
-</select>
+   <label for="lang">🌐 Language / Idioma / Idioma:</label>
+  <select id="lang" onchange="showLang(this.value)">
+    <option value="en">English 🇺🇸</option>
+    <option value="pt">Português 🇧🇷</option>
+    <option value="es">Español 🇪🇸</option>
+  </select>
 
       <!-- Portuguese -->
  <div id="pt" class="lang-section">
