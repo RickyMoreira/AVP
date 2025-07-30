@@ -99,13 +99,51 @@
   <main>
     <h1>🏡 Alto da Vila Progresso (FAQ) Perguntas Frequentes</h1>
 
- <select aria-label="Selecionar idioma" onchange="switchLanguage(this.value)">
+<!-- Language Dropdown -->
+<select aria-label="Selecionar idioma" onchange="switchLanguage(this.value)">
   <option value="pt" selected>🇧🇷 Português</option>
   <option value="en">🇺🇸 English</option>
   <option value="es">🇪🇸 Español</option>
 </select>
 
+<!-- Language Sections -->
+<div id="pt" class="lang-section active">
+  <p>Bem-vindo! Esta é a versão em português.</p>
+</div>
+<div id="en" class="lang-section">
+  <p>Welcome! This is the English version.</p>
+</div>
+<div id="es" class="lang-section">
+  <p>¡Bienvenido! Esta es la versión en español.</p>
+</div>
 
+<!-- Language Switching Script -->
+<script>
+  function switchLanguage(lang) {
+    document.querySelectorAll('.lang-section').forEach(section => {
+      section.classList.remove('active');
+    });
+    const selectedSection = document.getElementById(lang);
+    if (selectedSection) {
+      selectedSection.classList.add('active');
+    }
+  }
+
+  // Trigger on load (even without full HTML structure)
+  if (document.readyState !== "loading") {
+    switchLanguage(document.querySelector("select").value);
+  } else {
+    document.addEventListener("DOMContentLoaded", () => {
+      switchLanguage(document.querySelector("select").value);
+    });
+  }
+</script>
+
+<!-- Styling for clarity -->
+<style>
+  .lang-section { display: none; }
+  .lang-section.active { display: block; }
+</style>
       <!-- Portuguese -->
  <div id="pt" class="lang-section">
 <details id="GuiaRapido" style="margin-top:20px">
