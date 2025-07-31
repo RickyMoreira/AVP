@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Alto da Vila Progresso – Multilingual FAQ                   </title>
+  <title>Alto da Vila Progresso – Multilingual FAQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#006D77">
   <link rel="icon" href="https://raw.githubusercontent.com/RickyMoreira/AVP/main/favicon.ico" type="image/x-icon">
@@ -12,16 +12,21 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rickymoreira.github.io/AVP/index.html">
   <script>
-  function switchLanguage(lang) {
-    document.querySelectorAll('.lang-section').forEach(section => {
-      section.classList.remove('active');
-    });
-    const selectedSection = document.getElementById(lang);
-    if (selectedSection) {
-      selectedSection.classList.add('active');
+    function switchLanguage(lang) {
+      document.querySelectorAll('.lang-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      const selectedSection = document.getElementById(lang);
+      if (selectedSection) {
+        selectedSection.classList.add('active');
+      }
     }
-  }
-</script>
+
+    // ✅ Auto-load Portuguese when the page opens
+    document.addEventListener('DOMContentLoaded', function () {
+      switchLanguage('pt');
+    });
+  </script>
   <style>
     body {
       font-family: "Segoe UI", "Helvetica Neue", sans-serif;
@@ -93,11 +98,12 @@
       text-align: center;
       color: #666;
     }
- </style>
+  </style>
 </head>
 <body>
   <main>
     <h1>🏡 Alto da Vila Progresso (FAQ) Perguntas Frequentes</h1>
+
 
     <select aria-label="Selecionar idioma" onchange="switchLanguage(this.value)">
       <option value="pt">🇧🇷 Português</option>
