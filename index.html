@@ -11,8 +11,10 @@
   <meta property="og:image" content="https://raw.githubusercontent.com/RickyMoreira/AVP/main/FrontDor.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rickymoreira.github.io/AVP/index.html">
+
   <script>
     function switchLanguage(lang) {
+      // Show/hide language sections
       document.querySelectorAll('.lang-section').forEach(section => {
         section.classList.remove('active');
       });
@@ -20,6 +22,15 @@
       if (selectedSection) {
         selectedSection.classList.add('active');
       }
+
+      // Update subheader based on language
+      const subheader = document.getElementById('subheader-title');
+      const titles = {
+        pt: 'Guia da Casa',
+        en: 'House Guide',
+        es: 'Guía de la Casa'
+      };
+      subheader.textContent = titles[lang] || titles['pt'];
     }
 
     // ✅ Auto-load Portuguese when the page opens
@@ -27,6 +38,7 @@
       switchLanguage('pt');
     });
   </script>
+
   <style>
     body {
       font-family: "Segoe UI", "Helvetica Neue", sans-serif;
@@ -41,7 +53,13 @@
       text-align: center;
       font-size: 1.9em;
       color: #006D77;
-      margin-bottom: 15px;
+      margin-bottom: 5px;
+    }
+    h2 {
+      text-align: center;
+      font-size: 1.3em;
+      color: #555;
+      margin-bottom: 20px;
     }
     select {
       font-size: 1.1em;
@@ -102,22 +120,24 @@
 </head>
 <body>
   <main>
-    <h1>🏡 Alto da Vila Progresso</h1>
-    <h2> Guia da Casa</h2>
-    
+    <!-- 🏡 Fixed + Dynamic Header -->
+    <div style="text-align:center; margin-top:20px;">
+      <h1>Alto da Vila Progresso</h1>
+      <h2 id="subheader-title">Guia da Casa</h2>
+    </div>
 
-
- <select aria-label="Selecionar idioma" onchange="switchLanguage(this.value)">
+    <!-- 🌐 Language Selector -->
+    <select aria-label="Selecionar idioma" onchange="switchLanguage(this.value)">
       <option value="pt">🇧🇷 Português</option>
       <option value="en">🇺🇸 English</option>
-      <option value="es">🇪🇸 Español</option> 
-</select>
+      <option value="es">🇪🇸 Español</option>
+    </select>
 
- <!-- 🇧🇷 Português -->
-<div id="pt" class="lang-section">
-  <details style="margin-top:20px">
-    <summary style="font-size:18px; font-weight:bold">🚪 Guia Rápido - (Endereço, Chaves, Wi-Fi, Lixo)</summary>
-    <div style="margin-left:20px; margin-top:10px">
+    <!-- 🇧🇷 Português -->
+    <div id="pt" class="lang-section">
+      <details style="margin-top:20px">
+        <summary style="font-size:18px; font-weight:bold">🚪 Guia Rápido - (Endereço, Chaves, Wi-Fi, Lixo)</summary>
+        <div style="margin-left:20px; margin-top:10px">
       
       <details>
         <summary>📍 Endereço da Propriedade</summary>
