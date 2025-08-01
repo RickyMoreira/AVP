@@ -12,8 +12,6 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rickymoreira.github.io/AVP/index.html">
 
-</div>
-
   <script>
     function switchLanguage(lang) {
       // Show/hide language sections
@@ -25,7 +23,7 @@
         selectedSection.classList.add('active');
       }
 
-      // Update subheader based on language
+      // Update subheader
       const subheader = document.getElementById('subheader-title');
       const titles = {
         pt: 'Guia da Casa',
@@ -33,9 +31,17 @@
         es: 'Guía de la Casa'
       };
       subheader.textContent = titles[lang] || titles['pt'];
+
+      // Update voltage warning
+      const voltage = document.getElementById('voltage-warning');
+      const voltageMessages = {
+        pt: '⚠️ <strong>Atenção:</strong> Rede Elétrica 220V',
+        en: '⚠️ <strong>Attention:</strong> Electrical System 220V',
+        es: '⚠️ <strong>Atención:</strong> Red Eléctrica 220V'
+      };
+      voltage.innerHTML = `<p style="margin:0; font-size:1.05em; color:#444;">${voltageMessages[lang] || voltageMessages['pt']}</p>`;
     }
 
-    // ✅ Auto-load Portuguese when the page opens
     document.addEventListener('DOMContentLoaded', function () {
       switchLanguage('pt');
     });
@@ -51,38 +57,71 @@
       font-size: 1.05rem;
       color: #333;
     }
-    h1 {
-      text-align: center;
+
+    /* 🏁 Top Banner */
+    .top-banner {
+      background-color: #006D77;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    .banner-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .banner-title {
       font-size: 1.9em;
-      color: #006D77;
-      margin-bottom: 5px;
-    }
-    h2 {
+      margin: 0;
       text-align: center;
-      font-size: 1.7em;
-      color: #555;
-      margin-bottom: 40px;
     }
-    select {
-      font-size: 1.1em;
-      margin: 0 auto 20px;
-      display: block;
-      padding: 10px;
+
+    .banner-subtitle {
+      font-size: 1.4em;
+      margin: 5px 0 0;
+      color: #f0f0f0;
+      text-align: center;
+    }
+
+    .voltage-box {
+      background: #FFF3CD;
+      color: #444;
+      padding: 10px 16px;
+      border-left: 4px solid #FFA000;
       border-radius: 6px;
-      width: 90%;
-      max-width: 320px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      font-size: 1.05em;
+      display: inline-block;
+      text-align: center;
+      max-width: 300px;
+    }
+
+    .language-select {
+      font-size: 1em;
+      padding: 6px 10px;
+      border-radius: 6px;
       border: 1px solid #ccc;
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      width: 180px;
+      margin-top: 10px;
     }
+
     .lang-section {
       display: none;
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
     }
+
     .active {
       display: block;
       opacity: 1;
     }
+
     details {
       background: #fff;
       margin: 16px 0;
@@ -92,9 +131,11 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.08);
       transition: background 0.3s ease;
     }
+
     details:hover {
       background: #f0f0f0;
     }
+
     summary {
       font-weight: 600;
       font-size: 1.1em;
@@ -102,16 +143,11 @@
       display: flex;
       align-items: center;
     }
-    summary:before {
-      content: "";
-      margin-right: 8px;
-    }
-    details[open] summary:before {
-      content: "";
-    }
+
     p {
       margin: 6px 0;
     }
+
     footer {
       margin-top: 40px;
       font-size: 0.9em;
@@ -120,21 +156,32 @@
     }
   </style>
 </head>
+
 <body>
   <main>
-    <!-- 🏡 Fixed + Dynamic Header -->
-    <div style="text-align:center; margin-top:20px;">
-      <h1>🏡 Alto da Vila Progresso</h1>
-      <h2 id="subheader-title">Guia da Casa</h2>
-    </div>
 
-    <!-- ⚠️ Voltage Warning (Dynamic) -->
-    <div id="voltage-warning" style="background:#FFF3CD; border-left:2px solid #FFA000; padding:12px 16px; margin:20px auto; border-radius:8px; max-width:300px; box-shadow:0 1px 3px rgba(0,0,0,0.08); text-align:center;">
-      <p style="margin:0; font-size:1.05em; color:#444;">
-        ⚠️ <strong>Atenção:</strong> rede elétrica 220V
-      </p>
-    </div>
+    <!-- 🏁 Top Banner -->
+    <header class="top-banner">
+      <div class="banner-content">
+        <h1 class="banner-title">🏡 Alto da Vila Progresso</h1>
+        <h2 id="subheader-title" class="banner-subtitle">Guia da Casa</h2>
+        <div id="voltage-warning" class="voltage-box">
+          ⚠️ <strong>Atenção:</strong> Rede Elétrica 220V
+        </div>
+        <select aria-label="Selecionar idioma" onchange="switchLanguage(this.value)" class="language-select">
+          <option value="pt">🇧🇷 Português</option>
+          <option value="en">🇺🇸 English</option>
+          <option value="es">🇪🇸 Español</option>
+        </select>
+      </div>
+    </header>
 
+    <!-- 🔽 Language Sections Start Below -->
+    <!-- Add your .lang-section blocks here -->
+
+  </main>
+</body>
+</html>
     <!-- 🌐 Language Selector -->
     <select aria-label="Selecionar idioma" onchange="switchLanguage(this.value)"
       style="font-size:0.95em; padding:4px 8px; width:180px; border-radius:4px; margin:10px auto; display:block;">
@@ -399,3 +446,4 @@
 </p>
 
      </div>
+
