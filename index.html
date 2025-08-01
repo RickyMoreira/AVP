@@ -167,9 +167,9 @@
         // Update voltage warning
         const voltage = document.getElementById('voltage-warning');
         const voltageMessages = {
-          pt: '⚠️ <strong>Atenção:</strong> rede elétrica 220V',
-          en: '⚠️ <strong>Attention:</strong> electrical system 220V',
-          es: '⚠️ <strong>Atención:</strong> red eléctrica 220V'
+          pt: '⚠️ <strong>Atenção:</strong> Rede Elétrica 220V',
+          en: '⚠️ <strong>Attention:</strong> Electrical System 220V',
+          es: '⚠️ <strong>Atención:</strong> Red Eléctrica 220V'
         };
         voltage.innerHTML = `<p style="margin:0; font-size:1.05em; color:#444;">${voltageMessages[lang] || voltageMessages['pt']}</p>`;
       }
