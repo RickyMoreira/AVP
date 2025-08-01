@@ -122,36 +122,63 @@
 </head>
 <body>
   <main>
+    <!-- 🏡 Fixed + Dynamic Header -->
+    <div style="text-align:center; margin-top:20px;">
+      <h1>🏡 Alto da Vila Progresso</h1>
+      <h2 id="subheader-title">Guia da Casa</h2>
+    </div>
+
+    <!-- ⚠️ Voltage Warning (Dynamic) -->
+    <div id="voltage-warning" style="background:#FFF3CD; border-left:4px solid #FFA000; padding:12px 16px; margin:20px auto; border-radius:6px; max-width:600px; box-shadow:0 1px 3px rgba(0,0,0,0.08); text-align:center;">
+      <p style="margin:0; font-size:1.05em; color:#444;">
+        ⚠️ <strong>Atenção:</strong> rede elétrica 220V
+      </p>
+    </div>
 
     <!-- 🌐 Language Selector -->
-function switchLanguage(lang) {
-  // Show/hide language sections
-  document.querySelectorAll('.lang-section').forEach(section => {
-    section.classList.remove('active');
-  });
-  const selectedSection = document.getElementById(lang);
-  if (selectedSection) {
-    selectedSection.classList.add('active');
-  }
+    <select aria-label="Selecionar idioma" onchange="switchLanguage(this.value)"
+      style="font-size:0.95em; padding:4px 8px; width:180px; border-radius:4px; margin:10px auto; display:block;">
+      <option value="pt">🇧🇷 Português</option>
+      <option value="en">🇺🇸 English</option>
+      <option value="es">🇪🇸 Español</option>
+    </select>
 
-  // Update subheader
-  const subheader = document.getElementById('subheader-title');
-  const titles = {
-    pt: 'Guia da Casa',
-    en: 'House Guide',
-    es: 'Guía de la Casa'
-  };
-  subheader.textContent = titles[lang] || titles['pt'];
+    <!-- 🧠 Language Switch Script -->
+    <script>
+      function switchLanguage(lang) {
+        // Show/hide language sections
+        document.querySelectorAll('.lang-section').forEach(section => {
+          section.classList.remove('active');
+        });
+        const selectedSection = document.getElementById(lang);
+        if (selectedSection) {
+          selectedSection.classList.add('active');
+        }
 
-  // Update voltage warning
-  const voltage = document.getElementById('voltage-warning');
-  const voltageMessages = {
-    pt: '⚠️ <strong>Atenção:</strong> rede elétrica 220V',
-    en: '⚠️ <strong>Attention:</strong> electrical system 220V',
-    es: '⚠️ <strong>Atención:</strong> red eléctrica 220V'
-  };
-  voltage.innerHTML = `<p style="margin:0; font-size:1.05em; color:#444;">${voltageMessages[lang] || voltageMessages['pt']}</p>`;
-}
+        // Update subheader
+        const subheader = document.getElementById('subheader-title');
+        const titles = {
+          pt: 'Guia da Casa',
+          en: 'House Guide',
+          es: 'Guía de la Casa'
+        };
+        subheader.textContent = titles[lang] || titles['pt'];
+
+        // Update voltage warning
+        const voltage = document.getElementById('voltage-warning');
+        const voltageMessages = {
+          pt: '⚠️ <strong>Atenção:</strong> rede elétrica 220V',
+          en: '⚠️ <strong>Attention:</strong> electrical system 220V',
+          es: '⚠️ <strong>Atención:</strong> red eléctrica 220V'
+        };
+        voltage.innerHTML = `<p style="margin:0; font-size:1.05em; color:#444;">${voltageMessages[lang] || voltageMessages['pt']}</p>`;
+      }
+
+      // Auto-load Portuguese on page load
+      document.addEventListener('DOMContentLoaded', function () {
+        switchLanguage('pt');
+      });
+    </script>
 
     <!-- 🇧🇷 Português -->
        <div id="pt" class="lang-section">
