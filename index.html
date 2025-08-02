@@ -109,23 +109,17 @@
       max-width: 250px;
     }
 
-    .language-select {
-  font-size: 1.05em;
-  padding: 10px 12px;
-  border-radius: 8px;
+  .language-select {
+  appearance: none; /* Hide native arrow */
+  background-image: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNjY2IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiI+PHBhdGggZD0iTTMgNSA2IDggOSA1Ii8+PC9zdmc+");
+  background-repeat: no-repeat;
+  background-position: right 0.75em center;
+  background-size: 0.65em;
+  padding-right: 2em; /* Space for arrow */
+  font-size: 1em;
   border: 1px solid #ccc;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  width: 100%;
-  max-width: 200px;
-  margin: 10px auto;
-  display: block;
-  background-color: #fff;
-  color: #333;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  border-radius: 4px;
 }
-
     .lang-section {
       display: none;
       opacity: 0;
@@ -241,7 +235,7 @@
         <div style="margin-left:20px; margin-top:10px">
       
       <details>
-        <summary>📍 Endereço da Propriedade</summary>
+        <summary>📍 Endereço </summary>
         <p>🏠 Rua Capitão Curado, 323 – Vila Progresso, Jundiaí – SP</p>
         <p>🗺️ <a href="https://maps.app.goo.gl/7fH2aEjoKZjnimcf9" target="_blank">Abrir no Google Maps</a></p>
       </details>
@@ -453,6 +447,7 @@
 </p>
 
      </div>
+
 
 
 
