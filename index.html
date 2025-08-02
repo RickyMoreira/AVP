@@ -1,1 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Alto da Vila Progresso</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#006D77">
+  <link rel="icon" href="https://raw.githubusercontent.com/RickyMoreira/AVP/main/favicon.ico" type="image/x-icon">
+  <meta property="og:title" content="Alto Da Vila Progresso">
+  <meta property="og:description" content="(FAQ) Perguntas Frequentes">
+  <meta property="og:image" content="https://raw.githubusercontent.com/RickyMoreira/AVP/main/Logo4.jpeg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rickymoreira.github.io/AVP/index.html">
+
+  <script>
+    function switchLanguage(lang) {
+      // Show/hide language sections
+      document.querySelectorAll('.lang-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      const selectedSection = document.getElementById(lang);
+      if (selectedSection) {
+        selectedSection.classList.add('active');
+      }
+
+      // Update subheader
+      const subheader = document.getElementById('subheader-title');
+      const titles = {
+        pt: 'Guia da Casa',
+        en: 'House Guide',
+        es: 'Guía de la Casa'
+      };
+      subheader.textContent = titles[lang] || titles['pt'];
+
+      // Update voltage warning
+      const voltage = document.getElementById('voltage-warning');
+      const voltageMessages = {
+        pt: '⚠️ <strong>Atenção:</strong> Rede Elétrica 220V',
+        en: '⚠️ <strong>Attention:</strong> Electrical System 220V',
+        es: '⚠️ <strong>Atención:</strong> Red Eléctrica 220V'
+      };
+      voltage.innerHTML = `<p style="margin:0; font-size:1.05em; color:#444;">${voltageMessages[lang] || voltageMessages['pt']}</p>`;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      switchLanguage('pt');
+    });
+  </script>
+
+  <style>
+    body {
+      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+      background: linear-gradient(to right, #fdfdfd, #f6f6f6);
+      padding: 20px;
+      margin: auto;
+      max-width: 800px;
+      font-size: 1.05rem;
+      color: #333;
+    }
+
+    /* 🏁 Top Banner */
+    .top-banner {
+      background-color: #006D77;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    .banner-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .banner-title {
+      font-size: 1.9em;
+      margin: 0;
+      text-align: center;
+    }
+
+    .banner-subtitle {
+      font-size: 1.4em;
+      margin: 5px 0 0;
+      color: #f0f0f0;
+      text-align: center;
+    }
+
+    .voltage-box {
+      background: #FFF3CD;
+      color: #444;
+      padding: 10px 16px;
+      border-left: 4px solid #FFA000;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      font-size: 1.05em;
+      display: inline-block;
+      text-align: center;
+      max-width: 350px;
+    }
+
+    .language-select {
+  font-size: 1.05em;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 200px;
+  margin: 10px auto;
+  display: block;
+  background-color: #fff;
+  color: #333;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+    .lang-section {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .active {
+      display: block;
+      opacity: 1;
+    }
+
+    details {
+      background: #fff;
+      margin: 16px 0;
+      padding: 16px;
+      border-radius: 8px;
+      border-left: 4px solid #006D77;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      transition: background 0.3s ease;
+    }
+
+    details:hover {
+      background: #f0f0f0;
+    }
+
+    summary {
+      font-weight: 600;
+      font-size: 1.1em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    p {
+      margin: 6px 0;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      text-align: center;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+
+    <!-- 🏁 Top Banner -->
+    <header class="top-banner">
+      <div class="banner-content">
+        <h1 class="banner-title">🏡 Alto da Vila Progresso</h1>
+        <h2 id="subheader-title" class="banner-subtitle">Guia da Casa</h2>
+        <div id="voltage-warning" class="voltage-box">
+          ⚠️ <strong>Atenção:</strong> Rede Elétrica 220V
+        </div>
+        <select aria-label="Selecionar idioma" onchange="switchLanguage(this.value)" class="language-select">
+          <option value="pt">🇧🇷 Português</option>
+          <option value="en">🇺🇸 English</option>
+          <option value="es">🇪🇸 Español</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- 🔽 Language Sections Start Below -->
+    <!-- Add your .lang-section blocks here -->
+
+  </main>
+</body>
+</html>
+    
+    <!-- 🧠 Language Switch Script -->
+    <script>
+      function switchLanguage(lang) {
+        // Show/hide language sections
+        document.querySelectorAll('.lang-section').forEach(section => {
+          section.classList.remove('active');
+        });
+        const selectedSection = document.getElementById(lang);
+        if (selectedSection) {
+          selectedSection.classList.add('active');
+        }
+
+        // Update subheader
+        const subheader = document.getElementById('subheader-title');
+        const titles = {
+          pt: 'Guia da Casa',
+          en: 'House Guide',
+          es: 'Guía de la Casa'
+        };
+        subheader.textContent = titles[lang] || titles['pt'];
+
+        // Update voltage warning
+        const voltage = document.getElementById('voltage-warning');
+        const voltageMessages = {
+          pt: '⚠️ <strong>Atenção:</strong> Rede Elétrica 220V',
+          en: '⚠️ <strong>Attention:</strong> Electrical System 220V',
+          es: '⚠️ <strong>Atención:</strong> Red Eléctrica 220V'
+        };
+        voltage.innerHTML = `<p style="margin:0; font-size:1.05em; color:#444;">${voltageMessages[lang] || voltageMessages['pt']}</p>`;
+      }
+
+      // Auto-load Portuguese on page load
+      document.addEventListener('DOMContentLoaded', function () {
+        switchLanguage('pt');
+      });
+    </script>
+
+    <!-- 🇧🇷 Português -->
+       <div id="pt" class="lang-section">
+      <details style="margin-top:20px">
+        <summary style="font-size:18px; font-weight:bold">🚪 Guia Rápido </summary>
+        <div style="margin-left:20px; margin-top:10px">
+      
+      <details>
+        <summary>📍 Endereço da Propriedade</summary>
+        <p>🏠 Rua Capitão Curado, 323 – Vila Progresso, Jundiaí – SP</p>
+        <p>🗺️ <a href="https://maps.app.goo.gl/7fH2aEjoKZjnimcf9" target="_blank">Abrir no Google Maps</a></p>
+      </details>
+
+      <details>
+        <summary>🔑 Instruções para pegar a chave</summary>
+        <p>Assista ao vídeo demonstrativo abaixo para entender como acessar a caixa de chaves:</p>
+        <video src="LockBox.mp4" controls width="100%" poster="thumbnail.jpg">
+          Seu navegador não suporta vídeos incorporados.
+        </video>
+      </details>
+
+      <details>
+        <summary>📶 Wi-Fi</summary> 
+        <p>🔒 Wi-Fi: <strong>Casa323-5G</strong></p> 
+        <p>🔒 Senha: <strong>Curado@323</strong></p> 
+        <button onclick="navigator.clipboard.writeText('Curado@323')">Copiar Senha</button>
+      </details>
+
+      <details>
+        <summary>🗑️ Coleta de Lixo</summary>
+        <p>🍂 Orgânico: Terça, Quinta e Sábado após 19h.</p>
+        <p>♻️ Reciclável: Segunda e Sexta após 19h.</p>
+       </details>
+
+    </div>
+  </details>
+
+
+      <details><summary>📁 Regras da Casa</summary>
+      <p>👥 Caso haja algum hóspede extra de última hora que não esteja incluído na reserva, pedimos a gentileza de nos informar para que possamos adicioná-lo corretamente (inclusive crianças).</p>
+      <p>🚭 Proibido fumar dentro da casa.</p>
+      <p>💡❄️ Não deixe luzes ou ar-condicionado ligados ao sair.</p>
+      <p>🚷 Não é permitido receber visitas sem previa autorização.</p>
+      <p>🍽️ Use utensílios e equipamentos com cuidado.</p>
+      <p>👶⚠️ Atenção com crianças nas escadas.</p>
+      <p>🔕 Horário de silêncio: das 22h às 7h, todos os dias.</p>
+      <p>🎶🗣️ Músicas e conversas altas não devem ser ouvidas pelas casas vizinhas em nenhum momento.</p>
+    </details>
+    <details><summary>❄️ Ar-Condicionado</summary>
+      <p>🚪🪟 Mantenha portas e janelas fechadas com ar ligado.</p>
+      <p>🌡️ Temperatura ideal: 22–23°C.</p>
+    </details>
+
+    <details><summary>🔥 Churrasqueira</summary>
+      <p>🚰 Abra registro próximo ao banheiro parte inferior da casa.</p>
+      <p>🚰 Após o uso, feche o registro de água.</p>
+      <p>🧹 Após o uso, deixe o ambiente limpo e organizado.</p>
+      <p>🧽 Limpar a grelha.</p>
+      <p>🍴 Utensílios da cozinha devem ser lavados e devolvidos.</p>
+      <p>🚫🔥 Não jogue água na brasa.</p>
+      <p>🔉 Ouça música em volume moderado.</p>
+      <p>🗑️ Recolha o lixo.</p>
+    </details>
+    <details><summary>⬇️ Parte Inferior da casa</summary>
+      <p>🚪 Mantenha portas de vidro e portão fechados quando não estiver usando.</p>
+      <p>💡 Apague as luzes ao sair.</p>
+    </details>
+    <details><summary>🌳 Jardim</summary>
+      <p>🚫🌲 Não subir nas árvores.</p>
+      <p>🚫🍏 Não colher frutas verdes.</p>
+      <p>🚫🌿 Não danificar plantas.</p>
+      <p>🐶💩 Recolher os dejetos do pet.</p>
+    </details>
+
+<p style="text-align:center; font-size:1.4em; margin-top:30px; color:#006D77;">
+ 👋 <span class="Bem-Vindo-message">Sejam muito Bem-vindos(as) e Aproveite sua Estadia!</span>
+</p>
+  </div>
+  <!-- English -->
+ <div id="en" class="lang-section">
+  <details style="margin-top:20px">
+    <summary style="font-size:18px; font-weight:bold">🚪 Quick Guide </summary>
+    <div style="margin-left:20px; margin-top:10px">
+
+      <details><summary>📍 Property Address</summary>
+        <p>🏠 Rua Capitão Curado, 323 – Vila Progresso, Jundiaí – SP</p>
+        <p>🗺️ <a href="https://maps.app.goo.gl/7fH2aEjoKZjnimcf9" target="_blank">Open in Google Maps</a></p>
+      </details>
+
+      <details><summary>🔑 Key Pickup Instructions</summary>
+        <p>Watch the demo video below to see how to access the lockbox:</p>
+        <video src="Key.mp4" controls width="100%" poster="thumbnail.jpg">
+          Your browser does not support embedded videos.
+        </video>
+      </details>
+
+      <details><summary>📶 Wi-Fi</summary> 
+        <p>🔒 Wi-Fi: <strong>Casa323-5G</strong></p> 
+        <p>🔒 PWD: <strong>Curado@323</strong></p> 
+        <button onclick="navigator.clipboard.writeText('Curado@323')">Copy PWD</button>
+      </details>
+
+    </div>
+  </details>
+    <details><summary>📁 House Rules</summary>
+      <p>🚭 No smoking inside the house.</p>
+      <p>💡❄️ Don’t leave lights or A/C running when leaving.</p>
+      <p>🚷 No visitors without prior approval.</p>
+      <p>🍴 Use utensils with care.</p>
+      <p>👶⚠️ Watch children near stairs.</p>
+      <p>🔕 Quiet hours: 10 PM to 7 AM.</p>
+      <p>🔉 Keep music low to avoid disturbing neighbors.</p>
+    </details>
+    <details><summary>❄️ Air Conditioning</summary>
+      <p>🚪🪟 Keep windows and doors closed when using A/C.</p>
+      <p>🌡️ Ideal temperature: 72–74°F.</p>
+    </details>
+    <details><summary>🗑️ Trash Collection</summary>
+      <p>🍂 Organic: Tue, Thu & Sat after 7 PM.</p>
+      <p>♻️ Recycling: Mon & Fri after 7 PM.</p>
+    </details>
+    <details><summary>🔥 Barbecue Area</summary>
+      <p>🚰 Open valve near downstairs bathroom.</p>
+      <p>🔒 Close after use.</p>
+      <p>🧼 Clean and organize the space.</p>
+      <p>🧽 Clean the grill.</p>
+      <p>🍽️ Return clean utensils.</p>
+      <p>🚫🔥 Never pour water on hot charcoal.</p>
+      <p>🔉 Keep music moderate.</p>
+      <p>🗑️ Dispose of trash properly.</p>
+    </details>
+    <details><summary>⬇️ Lower Level</summary>
+      <p>🚪 Keep glass doors and gate closed.</p>
+      <p>💡 Turn off lights when leaving.</p>
+    </details>
+    <details><summary>🌳 Garden</summary>
+      <p>🚫🌲 Do not climb trees.</p>
+      <p>🚫🍏 Do not pick green fruit.</p>
+      <p>🚫🌿 Do not damage plants.</p>
+      <p>🐶💩 Clean up after pets.</p>
+    </details>
+   <p style="text-align:center; font-size:1.1em; margin-top:30px; color:#006D77;">
+  👋 <span class="welcome-message">Welcome and Enjoy!</span>
+</p>
+
+  </div>
+  <!-- Spanish -->
+ <div id="es" class="lang-section">
+  <details style="margin-top:20px">
+    <summary style="font-size:18px; font-weight:bold">🚪 Guía Rápida </summary>
+    <div style="margin-left:20px; margin-top:10px">
+
+    <details>
+      <summary>📍 Dirección de la Propiedad</summary>
+      <p>🏠 Rua Capitão Curado, 323 – Vila Progresso, Jundiaí – SP</p>
+      <p>🗺️ <a href="https://maps.app.goo.gl/7fH2aEjoKZjnimcf9" target="_blank">Abrir no Google Maps</a></p>
+    </details>
+
+    <details>
+      <summary>🔑 Instrucciones para recoger la llave</summary>
+      <p>Assista ao vídeo demonstrativo abaixo para entender como acessar a caixa de chaves:</p>
+      <video src="Llave.mp4" controls width="100%" poster="thumbnail.jpg">
+        Seu navegador não suporta vídeos incorporados.
+      </video>
+    </details>
+
+    <details>
+      <summary>📶 Wi-Fi</summary> 
+      <p>🔒 Wi-Fi: <strong>Casa323-5G</strong></p> 
+      <p>🔒 Senha: <strong>Curado@323</strong></p> 
+      <button onclick="navigator.clipboard.writeText('Curado@323')">🔒 Copiar la clave de acceso
+
+</button>
+    </details>
+
+  </div>
+</details>
+        <details><summary>📁 Reglas de la Casa</summary>
+      <p>🚭 Prohibido fumar dentro de la casa.</p>
+      <p>💡❄️ No deje luces encendidas ni aire acondicionado al salir.</p>
+      <p>🚷 No se permiten visitas sin autorización previa.</p>
+      <p>🍴 Utilice los utensilios con cuidado.</p>
+      <p>👶⚠️ Vigile a los niños cerca de las escaleras.</p>
+      <p>🔕 Horario de silencio: de 22:00 a 7:00.</p>
+      <p>🔉 Mantenga el volumen bajo para no molestar a los vecinos.</p>
+    </details>
+    <details><summary>❄️ Aire Acondicionado</summary>
+      <p>🚪🪟 Mantenga puertas y ventanas cerradas cuando esté encendido.</p>
+      <p>🌡️ Temperatura ideal: 22–23°C.</p>
+    </details>
+    <details><summary>🗑️ Recolección de Basura</summary>
+      <p>🍂 Orgánica: Martes, Jueves y Sábado después de las 19h.</p>
+      <p>♻️ Reciclables: Lunes y Viernes después de las 19h.</p>
+    </details>
+    <details><summary>🔥 Parrilla</summary>
+      <p>🚰 Abra la válvula cerca del baño inferior.</p>
+      <p>🔒 Ciérrela después de usar
+              <p>🧼 Limpie y organice el área.</p>
+      <p>🧽 Limpie la parrilla.</p>
+      <p>🍽️ Devuelva los utensilios limpios.</p>
+      <p>🚫🔥 No eche agua sobre las brasas.</p>
+      <p>🔉 Mantenga el volumen moderado.</p>
+      <p>🗑️ Recoja la basura y deséchela correctamente.</p>
+    </details>
+    <details><summary>⬇️ Parte Inferior de la Casa </summary>
+      <p>🚪 Mantenga cerradas las puertas de vidrio y el portón.</p>
+      <p>💡 Apague las luces al salir.</p>
+    </details>
+    <details><summary>🌳 Jardín</summary>
+      <p>🚫🌲 No se suba a los árboles.</p>
+      <p>🚫🍏 No recoja frutas verdes.</p>
+      <p>🚫🌿 No dañe las plantas.</p>
+      <p>🐶💩 Recoja los desechos de las mascotas.</p>
+      </details>
+ 
+<p style="text-align:center; font-size:1.1em; margin-top:30px; color:#006D77;">
+  👋 <span class="Bien-message">¡Bienvenido(a) y disfrute!</span>
+</p>
+
+     </div>
 
