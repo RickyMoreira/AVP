@@ -317,16 +317,56 @@
  👋 <span class="Bem-Vindo-message">Sejam muito Bem-vindos(as) e Aproveite sua Estadia!</span>
 </p>
   </div>
-const dateInput = prompt("Digite a data e hora de check-in (formato: 2025-09-17T15:00):");
-const parsedDate = new Date(dateInput);
+<!-- 🔐 Password + Date Setup -->
+<div id="setup-block">
+  <button onclick="promptSetup()">🔒 Configurar Check-In</button>
+</div>
 
-if (!isNaN(parsedDate.getTime())) {
-  localStorage.setItem("checkInDate", parsedDate.toISOString());
-  alert("Data de check-in configurada com sucesso.");
-  checkUnlock();
-} else {
-  alert("Formato inválido. Use: 2025-09-17T15:00");
-}
+<!-- 🚪 Guia Rápido (Locked by Default) -->
+<div id="pt" class="lang-section" style="display:none;">
+  <details style="margin-top:20px">
+    <summary style="font-size:18px; font-weight:bold">🚪 Guia Rápido</summary>
+    <div style="margin-left:20px; margin-top:10px">
+      <!-- Your original content goes here -->
+    </div>
+  </details>
+</div>
+
+<script>
+  function promptSetup() {
+    const password = prompt("Digite a senha de configuração:");
+    const correctPassword = "marvinVIP"; // Change this as needed
+
+    if (password === correctPassword) {
+      const dateInput = prompt("Digite a data e hora de check-in (formato: YYYY-MM-DD HH:MM):");
+      const parsedDate = new Date(dateInput.replace(" ", "T"));
+
+      if (!isNaN(parsedDate)) {
+        localStorage.setItem("checkInDate", parsedDate.toISOString());
+        alert("Data de check-in configurada com sucesso.");
+        checkUnlock();
+      } else {
+        alert("Formato inválido. Tente novamente.");
+      }
+    } else {
+      alert("Senha incorreta.");
+    }
+  }
+
+  function checkUnlock() {
+    const storedDate = localStorage.getItem("checkInDate");
+    if (storedDate) {
+      const now = new Date();
+      const unlockDate = new Date(storedDate);
+      if (now >= unlockDate) {
+        document.getElementById("pt").style.display = "block";
+      }
+    }
+  }
+
+  // Run check on page load
+  window.onload = checkUnlock;
+</script>
   <!-- English -->
  <div id="en" class="lang-section">
   <details style="margin-top:20px">
