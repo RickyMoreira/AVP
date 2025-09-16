@@ -276,40 +276,20 @@
 </div>
 
 <script>
-  function promptSetup() {
-    const password = prompt("Digite a senha de configuração:");
-    const correctPassword = "marvinVIP"; // Change this as needed
+  // Fixed unlock time: 6:00 AM on check-in date
+  const checkInDate = "2025-09-17"; // Update this manually or automate later
+  const unlockTime = new Date(`${checkInDate}T06:00:00`);
 
-    if (password === correctPassword) {
-      const dateInput = prompt("Digite a data e hora de check-in (formato: YYYY-MM-DD HH:MM):");
-      const parsedDate = new Date(dateInput.replace(" ", "T"));
+  const now = new Date();
+  const guideBlock = document.getElementById("guide-block");
 
-      if (!isNaN(parsedDate)) {
-        localStorage.setItem("checkInDate", parsedDate.toISOString());
-        alert("Data de check-in configurada com sucesso.");
-        checkUnlock();
-      } else {
-        alert("Formato inválido. Tente novamente.");
-      }
-    } else {
-      alert("Senha incorreta.");
-    }
+  if (now >= unlockTime) {
+    guideBlock.removeAttribute("disabled");
+  } else {
+    guideBlock.setAttribute("disabled", true);
   }
-
-  function checkUnlock() {
-    const storedDate = localStorage.getItem("checkInDate");
-    if (storedDate) {
-      const now = new Date();
-      const unlockDate = new Date(storedDate);
-      if (now >= unlockDate) {
-        document.getElementById("pt").style.display = "block";
-      }
-    }
-  }
-
-  // Run check on page load
-  window.onload = checkUnlock;
 </script>
+
 
       <details><summary>📁 Regras da Casa</summary>
       <p>👥 Caso haja algum hóspede extra de última hora que não esteja incluído na reserva, pedimos a gentileza de nos informar para que possamos adicioná-lo corretamente (inclusive crianças).</p>
