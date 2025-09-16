@@ -229,12 +229,14 @@
     </script>
 
     <!-- 🇧🇷 Português -->
-     <!-- 🔐 Password + Date Setup -->
-<div id="setup-block">
-  <button onclick="promptSetup()">🔒 Configurar Check-In</button>
-</div>
-
-<!-- 🚪 Guia Rápido (Locked by Default) -->
+<!-- Cut
+<!-- 🇧🇷 Português -->
+<div id="pt" class="lang-section">
+  <details id="guide-block" style="margin-top:20px" disabled>
+    <summary style="font-size:18px; font-weight:bold">🚪 Guia Rápido</summary>
+    <div style="margin-left:20px; margin-top:10px">
+      <!-- Your sensitive content goes here -->
+      <!-- 🚪 Guia Rápido (Locked by Default) -->
 <div id="pt" class="lang-section" style="display:none;">
   <details style="margin-top:20px">
     <summary style="font-size:18px; font-weight:bold">🚪 Guia Rápido</summary>
@@ -274,6 +276,31 @@
   </div>
   </details>
 </div>
+    </div>
+  </details>
+</div>
+
+<script>
+  // Fixed unlock time: 6:00 AM on check-in date
+  const checkInDate = "2025-09-17"; // Update this manually or automate later
+  const unlockTime = new Date(`${checkInDate}T06:00:00`);
+
+  const now = new Date();
+  const guideBlock = document.getElementById("guide-block");
+
+  if (now >= unlockTime) {
+    guideBlock.removeAttribute("disabled");
+  } else {
+    guideBlock.setAttribute("disabled", true);
+  }
+</script>
+<-- Cut
+     <!-- 🔐 Password + Date Setup -->
+<div id="setup-block">
+  <button onclick="promptSetup()">🔒 Configurar Check-In</button>
+</div>
+
+
 
 <script>
   // Fixed unlock time: 6:00 AM on check-in date
