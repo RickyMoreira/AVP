@@ -227,9 +227,6 @@
       });
     </script>
 
-    
-
-     
     </div>
   </details>
       <details><summary>📁 Regras da Casa</summary>
@@ -284,6 +281,47 @@
   <p>📋 Informar qualquer dano ou perda.</p>
   <p>🔥 Limpar a churrasqueira após o uso. A equipe de limpeza não é responsável por ela.</p>
 </details>
+<div>
+  <button onclick="checkPassword()">Unlock Guest Info</button>
+</div>
+
+<div id="dropdown-block" style="display:none;">
+  <select>
+    <option>Welcome Guide</option>
+    <option>Pet Rules</option>
+    <option>Local Tips</option>
+  </select>
+
+  <div id="timed-block" style="display:none;">
+    <p>Wi-Fi: ZimoreiraGuest / Password: MarvinRocks</p>
+    <p>Lockbox Code: 1947</p>
+  </div>
+</div>
+
+<script>
+  function checkPassword() {
+    const input = prompt("Enter guest password:");
+    const correctPassword = "marvinVIP"; // Change this as needed
+
+    if (input === correctPassword) {
+      document.getElementById("dropdown-block").style.display = "block";
+      checkDateUnlock(); // Trigger date check after password
+    } else {
+      alert("Incorrect password.");
+    }
+  }
+
+  function checkDateUnlock() {
+    const now = new Date();
+    const unlockDate = new Date("2025-09-17T15:00:00"); // Set your unlock time
+
+    if (now >= unlockDate) {
+      document.getElementById("timed-block").style.display = "block";
+    } else {
+      alert("Sensitive info will unlock on check-in day.");
+    }
+  }
+</script>
 
 <p style="text-align:center; font-size:1.4em; margin-top:30px; color:#006D77;">
  👋 <span class="Bem-Vindo-message">Sejam muito Bem-vindos(as) e Aproveite sua Estadia!</span>
