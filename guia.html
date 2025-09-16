@@ -229,6 +229,20 @@
     </script>
 
    <!-- 🇧🇷 Português -->
+<script>
+  // Fixed unlock time: 6:00 AM on check-in date
+  const checkInDate = "2025-09-17"; // Update this manually or automate later
+  const unlockTime = new Date(`${checkInDate}T06:00:00`);
+
+  const now = new Date();
+  const guideBlock = document.getElementById("guide-block");
+
+  if (now >= unlockTime) {
+    guideBlock.removeAttribute("disabled");
+  } else {
+    guideBlock.setAttribute("disabled", true);
+  }
+</script>
 <div id="pt" class="lang-section">
   <details id="guide-block" style="margin-top:20px" disabled>
     <summary style="font-size:18px; font-weight:bold">🚪 Guia Rápido</summary>
@@ -268,20 +282,6 @@
     </div>
 
 
-<script>
-  // Fixed unlock time: 6:00 AM on check-in date
-  const checkInDate = "2025-09-17"; // Update this manually or automate later
-  const unlockTime = new Date(`${checkInDate}T06:00:00`);
-
-  const now = new Date();
-  const guideBlock = document.getElementById("guide-block");
-
-  if (now >= unlockTime) {
-    guideBlock.removeAttribute("disabled");
-  } else {
-    guideBlock.setAttribute("disabled", true);
-  }
-</script>
       <details><summary>📁 Regras da Casa</summary>
       <p>👥 Caso haja algum hóspede extra de última hora que não esteja incluído na reserva, pedimos a gentileza de nos informar para que possamos adicioná-lo corretamente (inclusive crianças).</p>
       <p>🚭 Proibido fumar dentro da casa.</p>
