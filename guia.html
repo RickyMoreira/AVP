@@ -228,16 +228,43 @@
       });
     </script>
 
-    <!-- 🔐 Password + Date Setup -->
+   
+<!-- 🔐 Password + Date Setup -->
 <div id="setup-block">
   <button onclick="promptSetup()">🔒 Configurar Check-In</button>
 </div>
 
-<!-- 🚪 Guia Rápido (Locked by Default) -->
-<div id="pt" class="lang-section" style="display:none;">
-  <details style="margin-top:20px">
-    <summary style="font-size:18px; font-weight:bold">🚪 Guia Rápido</summary>
-    <div style="margin-left:20px; margin-top:10px">
+<!-- 🇧🇷 Português -->
+<div id="pt" class="lang-section">
+  <details id="guide-block" style="margin-top:20px">
+    <summary id="guide-summary" style="font-size:18px; font-weight:bold; cursor: pointer;">
+      🚪 Guia da Casa (Desbloqueia às 6h)
+    </summary>
+    <div id="guide-content" style="margin-left:20px; margin-top:10px; display: none;">
+      <!-- Your sensitive content goes here -->
+    </div>
+  </details>
+</div>
+
+<script>
+  const checkInDate = "2025-09-17"; // Update this per guest or automate later
+  const unlockTime = new Date(`${checkInDate}T06:00:00`);
+  const now = new Date();
+
+  const guideSummary = document.getElementById("guide-summary");
+  const guideContent = document.getElementById("guide-content");
+
+  if (now >= unlockTime) {
+    guideContent.style.display = "block";
+  } else {
+    guideSummary.addEventListener("click", function (e) {
+      e.preventDefault(); // Prevent dropdown
+      alert("Este guia será desbloqueado às 6h no dia do check-in.");
+    });
+  }
+</script>
+
+
       
       <details>
         <summary>📍 Endereço </summary>
