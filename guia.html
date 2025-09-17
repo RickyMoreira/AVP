@@ -277,7 +277,7 @@
 <script>
   function promptSetup() {
     const password = prompt("Digite a senha de configuração:");
-    const correctPassword = "marvinVIP"; // Customize this
+    const correctPassword = "975321"; // Customize this
 
     if (password === correctPassword) {
       const dateInput = prompt("Digite a data de check-in (formato: AAAA-MM-DD):");
@@ -316,11 +316,7 @@
 
   // Run on page load
   window.onload = checkUnlock;
-</script>
-
-
-
-      
+</script>    
       
 <script>
   function promptSetup() {
@@ -328,7 +324,7 @@
     const correctPassword = "975321"; // Change this as needed
 
     if (password === correctPassword) {
-      const dateInput = prompt("Digite a data e hora de check-in (formato: YYYY-MM-DD HH:MM):");
+      const dateInput = prompt("Digite a data de check-in (formato: YYYY-MM-DD):");
       const parsedDate = new Date(dateInput.replace(" ", "T"));
 
       if (!isNaN(parsedDate)) {
