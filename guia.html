@@ -236,10 +236,10 @@
 
 <!-- 🇧🇷 Português -->
 <div id="pt" class="lang-section">
-  <details id="guide-block" style="margin-top:20px">
-    <summary id="guide-summary" style="font-size:18px; font-weight:bold; cursor: pointer;">
-      🚪 Guia da Casa (Desbloqueia às 6h)
-    </summary>
+  <details id="guide-block" disabled>
+  <summary id="guide-summary">🚪 Guia da Casa</summary>
+  <div id="guide-content" style="display:none;">
+
     <div id="guide-content" style="margin-left:20px; margin-top:10px; display: none;">
       <!-- Your sensitive content goes here -->
       <details>
@@ -276,22 +276,49 @@
    </div>
 
 <script>
-  const checkInDate = "2025-09-18"; // Update this per guest or automate later
-  const unlockTime = new Date(`${checkInDate}T06:00:00`);
-  const now = new Date();
+  function promptSetup() {
+    const password = prompt("Digite a senha de configuração:");
+    const correctPassword = "marvinVIP"; // Customize this
 
-  const guideSummary = document.getElementById("guide-summary");
-  const guideContent = document.getElementById("guide-content");
+    if (password === correctPassword) {
+      const dateInput = prompt("Digite a data de check-in (formato: AAAA-MM-DD):");
+      const fixedTime = "T06:00:00"; // Fixed unlock time at 6:00 AM
+      const fullDateTime = new Date(dateInput + fixedTime);
 
-  if (now >= unlockTime) {
-    guideContent.style.display = "block";
-  } else {
-    guideSummary.addEventListener("click", function (e) {
-      e.preventDefault(); // Prevent dropdown
-      alert("Este guia será desbloqueado às 6h no dia do check-in.");
-    });
+      if (!isNaN(fullDateTime.getTime())) {
+        localStorage.setItem("checkInDate", fullDateTime.toISOString());
+        alert("Data de check-in configurada com sucesso: " + fullDateTime.toLocaleString());
+        checkUnlock(); // Optional: run unlock logic immediately
+      } else {
+        alert("Formato inválido. Use: 2025-09-17");
+      }
+    } else {
+      alert("Senha incorreta.");
+    }
   }
+
+  function checkUnlock() {
+    const storedDate = localStorage.getItem("checkInDate");
+    if (storedDate) {
+      const now = new Date();
+      const unlockDate = new Date(storedDate);
+      const guideBlock = document.getElementById("guide-block");
+      const guideContent = document.getElementById("guide-content");
+
+      if (now >= unlockDate) {
+        guideContent.style.display = "block";
+        guideBlock.removeAttribute("disabled");
+      } else {
+        guideContent.style.display = "none";
+        guideBlock.setAttribute("disabled", true);
+      }
+    }
+  }
+
+  // Run on page load
+  window.onload = checkUnlock;
 </script>
+
 
 
       
