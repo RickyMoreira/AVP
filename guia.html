@@ -235,13 +235,12 @@
 </div>
 <!-- 🇧🇷 Português -->
 <div id="pt" class="lang-section">
-  <details id="guide-block" disabled>
-  <summary id="guide-summary">🚪 Guia da Casa</summary>
-  <div id="guide-content" style="display:none;">
-  </div>
-</details>
+  <details id="guide-block" style="margin-top:20px">
+    <summary id="guide-summary" style="font-size:18px; font-weight:bold; cursor: pointer;">
+      🚪 Guia da Casa
+    </summary>
+    <div id="guide-content" style="margin-left:20px; margin-top:10px;">
 
-    <div id="guide-content" style="margin-left:20px; margin-top:10px; display: none;">
       <!-- Your sensitive content goes here -->
       <details>
         <summary>📍 Endereço </summary>
@@ -279,17 +278,16 @@
 <script>
   function promptSetup() {
     const password = prompt("Digite a senha de configuração:");
-    const correctPassword = "975321"; // Customize this
+    const correctPassword = "marvinVIP";
 
     if (password === correctPassword) {
       const dateInput = prompt("Digite a data de check-in (formato: AAAA-MM-DD):");
-      const fixedTime = "T06:00:00"; // Fixed unlock time at 6:00 AM
-      const fullDateTime = new Date(dateInput + fixedTime);
+      const unlockDate = new Date(dateInput + "T06:00:00");
 
-      if (!isNaN(fullDateTime.getTime())) {
-        localStorage.setItem("checkInDate", fullDateTime.toISOString());
-        alert("Data de check-in configurada com sucesso: " + fullDateTime.toLocaleString());
-        checkUnlock(); // Optional: run unlock logic immediately
+      if (!isNaN(unlockDate.getTime())) {
+        localStorage.setItem("checkInDate", unlockDate.toISOString());
+        alert("Data de check-in configurada com sucesso.");
+        checkUnlock();
       } else {
         alert("Formato inválido. Use: 2025-09-17");
       }
@@ -300,61 +298,29 @@
 
   function checkUnlock() {
     const storedDate = localStorage.getItem("checkInDate");
+    const guideBlock = document.getElementById("guide-block");
+    const guideSummary = document.getElementById("guide-summary");
+
     if (storedDate) {
       const now = new Date();
       const unlockDate = new Date(storedDate);
-      const guideBlock = document.getElementById("guide-block");
-      const guideContent = document.getElementById("guide-content");
 
       if (now >= unlockDate) {
-        guideContent.style.display = "block";
-        guideBlock.removeAttribute("disabled");
+        // Allow normal expansion
+        guideSummary.onclick = null;
       } else {
-        guideContent.style.display = "none";
-        guideBlock.setAttribute("disabled", true);
+        // Prevent expansion before unlock
+        guideSummary.onclick = function(e) {
+          e.preventDefault();
+          alert("Este guia será desbloqueado às 6h no dia do check-in.");
+        };
       }
     }
   }
 
-  // Run on page load
-  window.onload = checkUnlock;
-</script>    
-      
-<script>
-  function promptSetup() {
-    const password = prompt("Digite a senha de configuração:");
-    const correctPassword = "975321"; // Change this as needed
-
-    if (password === correctPassword) {
-      const dateInput = prompt("Digite a data de check-in (formato: YYYY-MM-DD):");
-      const parsedDate = new Date(dateInput.replace(" ", "T"));
-
-      if (!isNaN(parsedDate)) {
-        localStorage.setItem("checkInDate", parsedDate.toISOString());
-        alert("Data de check-in configurada com sucesso.");
-        checkUnlock();
-      } else {
-        alert("Formato inválido. Tente novamente.");
-      }
-    } else {
-      alert("Senha incorreta.");
-    }
-  }
-
-  function checkUnlock() {
-    const storedDate = localStorage.getItem("checkInDate");
-    if (storedDate) {
-      const now = new Date();
-      const unlockDate = new Date(storedDate);
-      if (now >= unlockDate) {
-        document.getElementById("pt").style.display = "block";
-      }
-    }
-  }
-
-  // Run check on page load
   window.onload = checkUnlock;
 </script>
+      
 
       <details><summary>📁 Regras da Casa</summary>
       <p>👥 Caso haja algum hóspede extra de última hora que não esteja incluído na reserva, pedimos a gentileza de nos informar para que possamos adicioná-lo corretamente (inclusive crianças).</p>
